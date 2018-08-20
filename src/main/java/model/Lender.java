@@ -8,10 +8,11 @@ import java.math.BigDecimal;
  * This is for personal use. All Rights Reserved.
  */
 public class Lender {
+    private int id;
     private int available;
     private String name;
     private BigDecimal rate;
-    private boolean isOnTheList;
+
 
     public int getAvailable() {
         return available;
@@ -37,11 +38,11 @@ public class Lender {
         this.rate = rate;
     }
 
-    public boolean isOnTheList() {
-        return isOnTheList;
+    public int getId() {
+        return id;
     }
 
-    public void setOnTheList(boolean onTheList) {
-        isOnTheList = onTheList;
+    public void setId(int id) {
+        this.id = id;
     }
 }
