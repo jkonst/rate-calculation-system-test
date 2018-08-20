@@ -18,6 +18,8 @@ public class Calculator {
     private List<Lender> allLenders;
     private Map<BigDecimal, List<Lender>> availableByRateMap;
     private String csvFile;
+    private int requestedAmount;
+
 
     private BigDecimal monthlyRepayment;
     private BigDecimal totalRepayment;
@@ -102,6 +104,9 @@ public class Calculator {
         return bd;
     }
 
+
+
+
     //Getters - Setters
 
     public List<Lender> getAllLenders() {
@@ -134,5 +139,13 @@ public class Calculator {
 
     public void setTotalRepayment(BigDecimal totalRepayment) {
         this.totalRepayment = totalRepayment;
+    }
+
+    public int getRequestedAmount() {
+        return requestedAmount;
+    }
+
+    public void setRequestedAmount(int requestedAmount) {
+        this.requestedAmount = requestedAmount;
     }
 }
