@@ -1,5 +1,6 @@
 package main;
 
+import com.sun.xml.internal.ws.policy.AssertionValidationProcessor;
 import model.Lender;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -132,5 +133,7 @@ public class CalculatorTest {
         calculator.setRequestedAmount(1000);
         calculator.normalizeLenders();
         calculator.calculate();
+        Assert.assertEquals(calculator.getMonthlyRepayment(), new BigDecimal("30.86"));
+        Assert.assertEquals(calculator.getTotalRepayment(), new BigDecimal("1110.96"));
     }
 }

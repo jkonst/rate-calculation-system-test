@@ -196,9 +196,7 @@ public class Calculator {
         BigDecimal denominator = new BigDecimal("1").subtract(power);
 
         this.monthlyRepayment = numerator.divide(denominator, 2, RoundingMode.HALF_EVEN);
-        System.out.println(monthlyRepayment);
         this.totalRepayment = new BigDecimal("36").multiply(monthlyRepayment);
-        System.out.println(totalRepayment);
     }
 
     //Getters - Setters
