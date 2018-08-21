@@ -1,6 +1,5 @@
 package main;
 
-import com.sun.xml.internal.ws.policy.AssertionValidationProcessor;
 import model.Lender;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -109,12 +108,6 @@ public class CalculatorTest {
         Assert.assertTrue(calculator.isRequestedAmountCovered());
         Assert.assertTrue(calculator.getGivenRate().equals(new BigDecimal("7.0")));
         Assert.assertEquals(calculator.getFailResponse(), "");
-        List<Lender> lenders = calculator.getAvailableByRateMap().get(new BigDecimal("7.0"));
-        int totalAvailable = 0;
-        for (Lender lender : lenders) {
-            totalAvailable += lender.getAvailable();
-        }
-        Assert.assertEquals(totalAvailable, 800);
     }
 
     @Test

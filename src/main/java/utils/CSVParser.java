@@ -27,27 +27,30 @@ public class CSVParser {
     }
 
     public void readFile() {
-        try (InputStream in = this.getClass().getResourceAsStream(csvFile)) {
-            if (in == null) {
-                throw new FileNotFoundException();
+        String line = DEFAULT_LINE;
+        String csvSplitBy = DEFAULT_SEPARATOR;
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader(csvFile));
+            while ((line = br.readLine()) != null) {
+                String[] columns = line.split(csvSplitBy);
+                this.parsedLines.add(columns);
             }
-            String line = DEFAULT_LINE;
-            String csvSplitBy = DEFAULT_SEPARATOR;
-
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"))){
-                while ((line = br.readLine()) != null) {
-                    String[] columns = line.split(csvSplitBy);
-                    //debug
-                    System.out.println("Lender: " + columns[0] + " ---- " + "Rate: " + columns[1] + " ---- " + "Available: " + columns[2]);
-                    this.parsedLines.add(columns);
-                }
-                isParsingSuccessful = true;
-            } catch (IOException ioe) {
-                ioe.printStackTrace();
-            }
-        } catch (IOException e) {
+            isParsingSuccessful = true;
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-            System.out.println("Error with finding the csv file.");
+            System.out.println("The csv file was not found.");
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+            System.out.println("Error with opening the csv file.");
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 

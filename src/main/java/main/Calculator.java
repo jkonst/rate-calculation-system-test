@@ -70,8 +70,6 @@ public class Calculator {
                 lender.setAvailable(Integer.parseInt(columns[2]));
                 lender.setRate(getNormalizedRate(columns[1]));
                 allLenders.add(lender);
-            } else {
-                System.out.println("Lender " + lender.getName() + " is not a valid lender.");
             }
         }
         RateCompare rateCompare = new RateCompare();

@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 
 /**
@@ -11,13 +12,15 @@ import java.io.FileNotFoundException;
  * This is for personal use. All Rights Reserved.
  */
 public class CSVParserTest {
-    private static String filePath;
     private static CSVParser parser;
 
     @Test
     public void parseTest() throws FileNotFoundException {
-        filePath = "/MarketData.csv";
-        parser = new CSVParser(filePath);
+        String resourcePath = "src/test/resources/MarketData.csv";
+        File file = new File(resourcePath);
+        String absolutePath = file.getAbsolutePath();
+
+        parser = new CSVParser(absolutePath);
         parser.parse();
         Assert.assertTrue(parser.isParsingSuccessful());
         //csv file contains more lines than the header
@@ -26,8 +29,11 @@ public class CSVParserTest {
 
     @Test
     public void parseTest2() throws FileNotFoundException {
-        filePath = "/MarkeatData.csv";
-        parser = new CSVParser(filePath);
+        String resourcePath = "src/main/resources/MarkeatData.csv";
+        File file = new File(resourcePath);
+        String absolutePath = file.getAbsolutePath();
+
+        parser = new CSVParser(absolutePath);
         parser.parse();
         Assert.assertFalse(parser.isParsingSuccessful());
     }
