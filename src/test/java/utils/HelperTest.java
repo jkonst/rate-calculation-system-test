@@ -28,5 +28,12 @@ public void isValidNumberForRateTest(){
     Assert.assertTrue(Helper.isValidNumberForRate(new BigDecimal("10")));
 }
 
+@Test
+public void isAmountAHundredDividedTest() {
+    Assert.assertTrue(Helper.isAmountAHundredDivided(1000));
+    Assert.assertFalse(Helper.isAmountAHundredDivided(1050));
+    Assert.assertTrue(Helper.isAmountAHundredDivided(14000));
+    Assert.assertFalse(Helper.isAmountAHundredDivided(3310));
+}
 
 }

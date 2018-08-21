@@ -120,6 +120,7 @@ public class Calculator {
      * 3) Calculate monthly and total payments
      */
     public void calculate() {
+        isRequestedAmountCovered = false;
         checkAvailableForRequestedAmount();
         if (isRequestedAmountCovered) {
             calculatePMTFormula();

@@ -22,4 +22,8 @@ public class Helper {
     public static boolean isValidNumberForRate(BigDecimal b) {
         return b.toPlainString().matches("\\d+(\\.\\d{1,1})?");
     }
+
+    public static boolean isAmountAHundredDivided(int num) {
+        return num % 100 == 0;
+    }
 }
