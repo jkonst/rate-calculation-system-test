@@ -29,7 +29,7 @@ public class CSVParserTest {
 
     @Test
     public void parseTest2() throws FileNotFoundException {
-        String resourcePath = "src/main/resources/MarkeatData.csv";
+        String resourcePath = "src/main/resources/MarketData.csv";
         File file = new File(resourcePath);
         String absolutePath = file.getAbsolutePath();
 
